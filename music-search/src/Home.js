@@ -14,7 +14,7 @@ class Home extends Component{
     }
     componentWillMount() {
         var array=[]
-        fetch('http://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&api_key=41adbd33ca5a768aa7ba9a51e3f747f6&format=json&limit=6')
+        fetch('http://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&api_key=41adbd33ca5a768aa7ba9a51e3f747f6&format=json&limit=4')
             .then((Response)=>Response.json())
             .then((getResponse)=>{
             for(var i=0; i<getResponse.artists.artist.length;i++){
@@ -37,10 +37,9 @@ class Home extends Component{
         }
             return(<div>
                 <h1>Top Artists</h1>
-                <div>
-                    <img src={this.state.artists.map((elem)=>elem.image[3]["#text"])} alt={this.state.artists.map((elem)=>elem.name)}/><h2>{this.state.artists.map((elem)=>elem.name)}</h2>
+                <div className='topArtists'>
+                    {this.state.artists.map((i)=><img src={i.image[3]["#text"]} alt={i.name} />)}{this.state.artists.map((elem)=><h1>{elem.name}</h1>)}
 
-                    <h3>{this.state.artists.name}</h3>
                 </div>
 
             </div>);

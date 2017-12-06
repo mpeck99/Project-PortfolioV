@@ -33,3 +33,10 @@ li{
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+.topArtists{
+    margin: 0;
+    width: 100%;
+}
+.topArtists h2{
+    margin-left: 10px;
+}
