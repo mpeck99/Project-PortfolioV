@@ -1,3 +1,23 @@
-.albumData,.artistData,.songData{
-    margin: 20px;
+
+section{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 0 auto;
+    justify-content:center;
+}
+section img{
+    margin: 10px;
+}
+.homeData h1{
+    text-align: center;
+}
+
+li{
+    margin:10px;
+}
+.navigation{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
 }
