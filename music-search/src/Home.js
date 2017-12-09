@@ -12,6 +12,7 @@ class Home extends Component{
             tracks:[]
         };
     }
+
     componentWillMount() {
         var artistArray=[];
         var trackArray=[];
@@ -22,6 +23,10 @@ class Home extends Component{
                     artistArray.push(getResponse.artists.artist[i])
                     this.setState({loading:false,artists:artistArray});
             }
+
+        })
+            .catch((ex)=>{
+            alert('OOPS! Something went wrong',ex);
         });
         fetch('http://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=41adbd33ca5a768aa7ba9a51e3f747f6&format=json&limit=5')
             .then((Response)=>Response.json())
@@ -30,6 +35,9 @@ class Home extends Component{
                    trackArray.push(getResponse.tracks.track[i]);
                     this.setState({loading:false,tracks:trackArray});
                 }
+            })
+            .catch((ex)=>{
+                alert('OOPS! Something went wrong',ex);
             });
     }
 
