@@ -22,6 +22,7 @@ class Home extends Component{
             for(var i=0; i<getResponse.artists.artist.length;i++){
                     artistArray.push(getResponse.artists.artist[i])
                     this.setState({loading:false,artists:artistArray});
+                    console.log(artistArray);
             }
 
         })
@@ -34,6 +35,7 @@ class Home extends Component{
                 for(var i=0; i<getResponse.tracks.track.length;i++){
                    trackArray.push(getResponse.tracks.track[i]);
                     this.setState({loading:false,tracks:trackArray});
+                    console.log(trackArray);
                 }
             })
             .catch((ex)=>{
@@ -53,7 +55,7 @@ class Home extends Component{
                     <h1>Top Tracks</h1>
                 <section>
 
-                    {this.state.tracks.map((t)=><article className='data'><img src={t.image[3]['#text']} alt={t.name} classID='topImg'/><div className='overlay'><h3 classID='name'>{t.name}</h3></div></article>)}
+                    {this.state.tracks.map((t)=><article className='data'><img src={t.image[3]['#text']} alt={t.name} classID='topImg'/><div className='overlay'><h3 classID='name'>Track: {t.name}</h3><h4>Artist: {t.artist.name}</h4></div></article>)}
                 </section>
                     <h1>Top Artists</h1>
                     <section className='topArtists'>

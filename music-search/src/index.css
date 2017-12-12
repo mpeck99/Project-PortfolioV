@@ -18,8 +18,8 @@ section{
     box-shadow: #222222;
 }
 section img{
-
     width: 315px;
+
 }
 button{
     background-color: #1DBAE1;
@@ -35,13 +35,17 @@ button{
     position: fixed;
 }
 .data:hover img{
-    width: 75%;
+    width: 125%;
+   transform: scale(1);
+    transition: transform 0.5s ease-in-out;
+    z-index:-1;
 }
  .data:hover .overlay{
      visibility: visible;
      display: inline-block;
-     width: 75%;
-     height: 162px;
+     width: 125%;
+     height: 81%;
+     z-index:100 !important;
      position: relative;
      animation-name: slideUp;
      animation-duration: .2s;
@@ -123,5 +127,5 @@ footer{
     0% {
         height: 0px; }
     100% {
-        transform: translateY(-165px);
+        transform: translateY(-410px);
         } }
