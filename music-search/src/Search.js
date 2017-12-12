@@ -13,6 +13,7 @@ class Search extends Component{
         this.handleClick=this.handleClick.bind(this);
         this.addToList=this.addToList.bind(this);
 
+
     }
     handleClick(){
         var artistsArray=[];
@@ -58,8 +59,14 @@ class Search extends Component{
             });
 
     }
-    addToList(e){
-        localStorage.setItem('item',e);
+      addToList(e){
+        var savedData=[];
+        savedData.push(e);
+            localStorage.setItem('items',JSON.stringify(savedData));
+
+
+
+
     }
     render(){
         var input=document.querySelector('.searchTerm');
@@ -73,20 +80,20 @@ class Search extends Component{
             <h1>Search for songs, artists and albums!</h1>
                 <div>
                 <form className='search'>
-                    <input type='text' ref='searchTerm'/><button type='button'><img src={searchIcon} alt='Search' onClick={this.handleClick}/></button>
+                    <input type='text' ref='searchTerm'/><button type='button'><img src={searchIcon} alt='Search' onClick={this.handleClick.bind(this)}/></button>
                 </form>
                 </div>
                 <h2>Tracks</h2>
                 <section className='tracks'>
-                    {this.state.tracks.map((t)=><article><img src={t.image[3]['#text']} alt={t.name} classID='trackImg'/><div className='overlay'><button type='button' onClick={this.addToList(t)}><img src={addIcon} alt='add' style={{width: '10px'}}/> </button><h3 classID='name'>{t.name}</h3></div></article>)}
+                    {this.state.tracks.map((t)=><article className='data'><img src={t.image[3]['#text']} alt={t.name} classID='trackImg'/><div className='overlay'><button type='button' className='addButton' onClick={this.addToList.bind(this,t)}><img src={addIcon} alt='add' style={{width: '10px'}}/> </button><h3 classID='name'>{t.name}</h3></div></article>)}
                 </section>
                 <h2>Artists</h2>
                 <section className='artists'>
-                    {this.state.artists.map((i)=><article><img src={i.image[3]["#text"]} alt={i.name} classID='topImg'/><div className='overlay'><img src={addIcon} alt='add' style={{width: '10px'}}/><h3 classID='name'>{i.name}</h3></div></article>)}
+                    {this.state.artists.map((i)=><article className='data'><img src={i.image[3]["#text"]} alt={i.name} classID='topImg'/><div className='overlay'><button type='button' className='addButton' onClick={this.addToList(i)}><img src={addIcon}  alt='add' style={{width: '10px'}}/></button><h3 classID='name'>{i.name}</h3></div></article>)}
                 </section>
                 <h2>Albums</h2>
                 <section className='albums'>
-                    {this.state.albums.map((i)=><article className={i.name}><img src={i.image[3]["#text"]} alt={i.name} classID='topImg'/><div className='overlay'><button type='button' ><img src={addIcon} alt='add' style={{width: '10px'}}/></button><h3 classID='name'>{i.name}</h3></div></article>)}
+                    {this.state.albums.map((i)=><article className='data'><img src={i.image[3]["#text"]} alt={i.name} classID='topImg'/><div className='overlay'><button type='button' className='addButton' onClick={this.addToList(i)}><img src={addIcon}  alt='add' style={{width: '10px'}}/></button><h3 classID='name'>{i.name}</h3></div></article>)}
                 </section>
 
             </div>

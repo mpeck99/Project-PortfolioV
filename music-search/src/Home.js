@@ -53,11 +53,11 @@ class Home extends Component{
                     <h1>Top Tracks</h1>
                 <section>
 
-                    {this.state.tracks.map((t)=><article><img src={t.image[3]['#text']} alt={t.name} classID='topImg'/> <h3 classID='name'>{t.name}</h3></article>)}
+                    {this.state.tracks.map((t)=><article className='data'><img src={t.image[3]['#text']} alt={t.name} classID='topImg'/><div className='overlay'><h3 classID='name'>{t.name}</h3></div></article>)}
                 </section>
                     <h1>Top Artists</h1>
                     <section className='topArtists'>
-                        {this.state.artists.map((i)=><article><img src={i.image[3]["#text"]} alt={i.name} classID='topImg'/><h3 classID='name'>{i.name}</h3></article>)}
+                        {this.state.artists.map((i)=><article className='data'><img src={i.image[3]["#text"]} alt={i.name} classID='topImg'/><div className='overlay'><h3 classID='name'>{i.name}</h3></div></article>)}
                     </section>
                 </div>
             );
