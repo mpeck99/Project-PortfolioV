@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import searchIcon from './assets/music-search.png';
 import addIcon from './assets/126583-64.png';
+
+var savedData=[];
+
 class Search extends Component{
     constructor(props){
         super(props);
@@ -8,7 +11,7 @@ class Search extends Component{
             artists:[],
             albums:[],
             tracks:[],
-            playlist:[],
+            playlist:[]
         };
         this.handleClick=this.handleClick.bind(this);
         this.addToList=this.addToList.bind(this);
@@ -59,17 +62,16 @@ class Search extends Component{
             });
 
     }
+
       addToList(e){
-        var savedData=[];
-        savedData.push(e);
-            localStorage.setItem('items',JSON.stringify(savedData));
-
-
-
+          savedData.push(e);
+          localStorage.setItem('items',JSON.stringify(savedData));
+          console.log(savedData);
 
     }
     render(){
         var input=document.querySelector('.searchTerm');
+
         if(this.state.loading){
             return <h3>Loading...</h3>
         }
@@ -89,11 +91,11 @@ class Search extends Component{
                 </section>
                 <h2>Artists</h2>
                 <section className='artists'>
-                    {this.state.artists.map((i)=><article className='data'><img src={i.image[3]["#text"]} alt={i.name} classID='topImg'/><div className='overlay'><button type='button' className='addButton' onClick={this.addToList(i)}><img src={addIcon}  alt='add' style={{width: '10px'}}/></button><h3 classID='name'>{i.name}</h3></div></article>)}
+                    {this.state.artists.map((i)=><article className='data'><img src={i.image[3]["#text"]} alt={i.name} classID='topImg'/><div className='overlay'><button type='button' className='addButton' onClick={this.addToList.bind(this,i)}><img src={addIcon}  alt='add' style={{width: '10px'}}/></button><h3 classID='name'>{i.name}</h3></div></article>)}
                 </section>
                 <h2>Albums</h2>
                 <section className='albums'>
-                    {this.state.albums.map((i)=><article className='data'><img src={i.image[3]["#text"]} alt={i.name} classID='topImg'/><div className='overlay'><button type='button' className='addButton' onClick={this.addToList(i)}><img src={addIcon}  alt='add' style={{width: '10px'}}/></button><h3 classID='name'>{i.name}</h3></div></article>)}
+                    {this.state.albums.map((i)=><article className='data'><img src={i.image[3]["#text"]} alt={i.name} classID='topImg'/><div className='overlay'><button type='button' className='addButton' onClick={this.addToList.bind(this,i)}><img src={addIcon}  alt='add' style={{width: '10px'}}/></button><h3 classID='name'>{i.name}</h3></div></article>)}
                 </section>
 
             </div>

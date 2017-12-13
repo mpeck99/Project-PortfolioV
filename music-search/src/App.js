@@ -13,13 +13,13 @@ render() {
         <BrowserRouter>
             <div className="App">
                 <ul className='navigation'>
-                    <li><NavLink to={'/'} activeClassName='active' style={{textDecoration:'none'}}>Home</NavLink></li>
+                    <li><NavLink to={'/Home'} activeClassName='active' style={{textDecoration:'none'}}>Home</NavLink></li>
                     <li><NavLink to={'/Search'} style={{textDecoration:'none'}}>Search</NavLink></li>
                     <li><NavLink to={'/Playlist'} style={{textDecoration:'none'}}>Playlist</NavLink></li>
                 </ul>
                 <img src={Logo} alt='Logo' classID='Logo'/>
                 <Switch>
-                    <Route exact path='/' component={Home}/>
+                    <Route exact path='/Home' component={Home}/>
                     <Route path='/Search' component={Search}/>
                     <Route path='/Playlist' component={Playlist}/>
                 </Switch>
