@@ -25,8 +25,7 @@ section{
 }
 section img{
     width: 315px;
-
-
+    z-index:999;
 }
 button{
     background-color: #1DBAE1;
@@ -35,6 +34,7 @@ button{
 }
 
 .overlay{
+    padding: 30% 0 0 0;
     background-color: #E3476E;
     display: none;
     transition: .5s ease;
@@ -46,14 +46,14 @@ button{
 .data:hover img{
     width: 125%;
     transform: scale(1);
-
     z-index:-1;
+    overflow: hidden;
 }
- .data:hover .overlay{
+.data:hover .overlay{
      visibility: visible;
      display: inline-block;
      width: 125%;
-     height: 74%;
+     height:44.5%;
      position: relative;
      animation-name: slideUp;
      animation-duration: .2s;
@@ -67,10 +67,12 @@ button{
     border: none;
     opacity:1;
     margin-top: 20px;
+
 }
 .addButton img{
     margin: 0;
     height:20px;
+
 }
 button img{
     height:50px;
@@ -94,11 +96,12 @@ section img{
 
 }
 
-.homeData h1{
-    float: left;
+ h1 {
+
     color: #1DBAE1;
     font-size: 28px;
     margin-left:15px;
+    font-family: Bungee;
 }
 
 ul li {
@@ -138,3 +141,14 @@ footer{
         transform: translateY(-410px);
 
         } }
+@media only screen and (min-width: 300px) and (max-width: 425px) {
+
+}
+@media only screen and (min-width: 425px) and (max-width: 768px) {
+
+    article img{
+        width: 90%;
+        margin: 0;
+        padding: 0;
+    }
+}

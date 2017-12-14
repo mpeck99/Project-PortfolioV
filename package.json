@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/mpeck99/Project-PortfolioV/issues"
   },
-  "homepage": "https://github.com/mpeck99/Project-PortfolioV#readme"
+  "homepage": "https://github.com/mpeck99/Project-PortfolioV#readme",
+  "dependencies": {
+    "react-responsive": "^4.0.3"
+  }
 }
