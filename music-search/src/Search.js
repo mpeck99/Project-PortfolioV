@@ -23,14 +23,17 @@ class Search extends Component{
         var tracksArray=[];
         var userInput=this.refs.searchTerm.value;
        console.log(userInput);
+       //looping through all the api data with the help of hte user input to return results
         fetch('http://ws.audioscrobbler.com/2.0/?method=track.search&api_key=41adbd33ca5a768aa7ba9a51e3f747f6&format=json&limit=5&track='+userInput)
             .then((Response)=>Response.json())
             .then((getResponse)=>{
                 for(var i=0; i<getResponse.results.trackmatches.track.length;i++){
+                    //then stores the data into a list to be saved into the state
                     tracksArray.push(getResponse.results.trackmatches.track[i]);
                     this.setState({loading:false,tracks:tracksArray});
                 }
             })
+            //if something doesnt load or request times out an error is thrown
             .catch((ex)=>{
                 alert('OOPS! Something went wrong',ex);
             });
@@ -61,22 +64,22 @@ class Search extends Component{
             });
 
     }
-
+        //saving the selected song to a playlist
       addToList(e){
           savedData.push(e);
           localStorage.setItem('items',JSON.stringify(savedData));
 
-
     }
     render(){
-        var input=document.querySelector('.searchTerm');
 
+        var input=document.querySelector('.searchTerm');
+        //returns loading if the data is not ready to be displayed
         if(this.state.loading){
             return <h3>Loading...</h3>
         }
 
         return(
-
+        //rendering the data into the page
             <div className='searchData'>
             <h1>Search for songs, artists and albums!</h1>
                 <div>

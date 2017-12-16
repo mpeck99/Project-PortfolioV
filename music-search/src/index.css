@@ -1,14 +1,24 @@
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans');
+
+/*CSS styles for website*/
 body {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    background-color:#828082;
+    background: linear-gradient(#222222, #828082, #222222);
     color: #fff;
     font-family: 'Noto Sans', sans-serif;
 
 }
-
+.logo{
+    -webkit-animation-name: rotateIcon;
+    -moz-animation-name:rotateIcon ;
+    -o-animation-name: rotateIcon;
+    animation-name: rotateIcon;
+    animation-duration: 5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
 a{
     color:#FDFEFC;;
     font-family: Bungee;
@@ -17,24 +27,27 @@ a{
 section{
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: auto;
     margin: 0 auto;
     justify-content:center;
     box-shadow: #222222;
 
 }
 section img{
-    width: 315px;
+    width: 300px;
     z-index:999;
+    height: 300px;
 }
 button{
     background-color: #1DBAE1;
     border: none;
 
 }
-
-.overlay{
+.overlay h3{
     padding: 30% 0 0 0;
+}
+.overlay{
+
     background-color: #E3476E;
     display: none;
     transition: .5s ease;
@@ -44,7 +57,7 @@ button{
 
 }
 .data:hover img{
-    width: 125%;
+
     transform: scale(1);
     z-index:-1;
     overflow: hidden;
@@ -52,13 +65,21 @@ button{
 .data:hover .overlay{
      visibility: visible;
      display: inline-block;
-     width: 125%;
-     height:44.5%;
+    width: 300px;
+     height:300px;
      position: relative;
      animation-name: slideUp;
      animation-duration: .2s;
      animation-fill-mode: forwards;
      animation-timing-function: ease-in-out;
+}
+li:hover
+{
+    animation-name: slideDown;
+    animation-duration: .2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+
 }
 .addButton{
     height:30px;
@@ -106,7 +127,6 @@ section img{
 
 ul li {
     margin: 0px 200px;
-    color: black;
 }
 
 .navigation{
@@ -123,7 +143,7 @@ ul li{
     color: #1DBAE1;;
 }
 footer{
-    height: 75px;
+    height: 10px;
     font-style: italic;
     background-color: #222222;
     margin-top: 10px;
@@ -134,21 +154,31 @@ footer{
 .active{
     color: #E3476E;
 }
+/*Animations for the overlay and hover effects for the navigation*/
 @keyframes slideUp {
     0% {
         height: 0px; }
     100% {
-        transform: translateY(-410px);
+        transform: translateY(-305px);
 
-        } }
-@media only screen and (min-width: 300px) and (max-width: 425px) {
+        }
+}@keyframes slideDown {
+    0%{
 
-}
-@media only screen and (min-width: 425px) and (max-width: 768px) {
-
-    article img{
-        width: 90%;
-        margin: 0;
-        padding: 0;
     }
-}
+    100%{
+        -webkit-transform: translateY(10px);
+        -moz-transform: translateY(10px);
+        -ms-transform: translateY(10px);
+        -o-transform: translateY(10px);
+        transform: translateY(10px);
+    }
+
+ }
+@keyframes rotateIcon {
+    from {
+        transform: rotate(0deg); }
+    to {
+        transform: rotate(360deg); } }
+
+

@@ -9,6 +9,7 @@ import Logo from './assets/logo.png';
 
 class App extends Component {
 render() {
+    //this is the navigation for the page, making it where the pages are routed to on each click
     return (
         <BrowserRouter>
             <div className="App">
@@ -17,7 +18,7 @@ render() {
                     <li><NavLink to={'/Search'} style={{textDecoration:'none'}}>Search</NavLink></li>
                     <li><NavLink to={'/Playlist'} style={{textDecoration:'none'}}>Playlist</NavLink></li>
                 </ul>
-                <img src={Logo} alt='Logo' classID='Logo'/>
+                <img src={Logo} alt='Logo' className='logo'/>
                 <Switch>
                     <Route exact path='/' component={Home}/>
                     <Route path='/Search' component={Search}/>

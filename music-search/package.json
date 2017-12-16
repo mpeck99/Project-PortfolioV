@@ -2,12 +2,14 @@
   "name": "music-search",
   "version": "0.1.0",
   "private": true,
+  "homepage" : "http://mpeck99.github.io/music-search",
   "dependencies": {
     "font-awesome": "^4.7.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-router": "^4.2.0",
-    "react-scripts": "1.0.17"
+    "react-scripts": "1.0.17",
+
   },
   "scripts": {
     "start": "react-scripts start",
